@@ -12,7 +12,7 @@ describe("Assertions demo", ()=>{
         .should('eq','https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
         .should('contain','orangehrmlive')*/
 
-        cy.url().should('include','orangehrmlive.com')  
+        /*cy.url().should('include','orangehrmlive.com')  
         .and('eq','https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
         .and('contain','orangehrmlive')
         .and('not.contain','orangssehrmlive')
@@ -51,7 +51,7 @@ describe("Assertions demo", ()=>{
             //TDD style
             assert.equal(actName,expName)
             assert.notEqual(actName,expName2)
-        })
+        })*/
 
     })
 })
