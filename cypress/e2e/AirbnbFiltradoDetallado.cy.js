@@ -33,15 +33,12 @@ describe("Filtrado Detallado de Residencias", () => {
                 numToShow = parseInt(text.match(/\d+/)[0]); // Extraer el número del texto
                 cy.log(`Número extraído: ${numToShow}`);
             }
-
             // Hacer clic en el botón después de obtener el texto
             cy.get('.bmx2gr4').click();
             cy.wait(4000);
-
             // Desplazarse hasta el final de la página de forma lenta
             cy.scrollTo('bottom', { duration: 5000 }); // Duración de 5 segundos
             cy.wait(4000); // Esperar un momento después del desplazamiento
-
             // Verificar el número de cards
             cy.get('.bn2bl2p').should('have.length', numToShow); // Clase que identifica las cards
         });
@@ -85,15 +82,12 @@ describe("Filtrado Detallado de Residencias", () => {
             numToShow = parseInt(text.match(/\d+/)[0]); // Extraer el número del texto
             cy.log(`Número extraído: ${numToShow}`);
         }
-
         // Hacer clic en el botón después de obtener el texto
         cy.get('.bmx2gr4').click();
         cy.wait(4000);
-
         // Desplazarse hasta el final de la página de forma lenta
         cy.scrollTo('bottom', { duration: 5000 }); // Duración de 5 segundos
         cy.wait(4000); // Esperar un momento después del desplazamiento
-
         // Verificar el número de cards
         cy.get('.bn2bl2p').should('have.length', numToShow); // Clase que identifica las cards
     });
@@ -158,18 +152,18 @@ describe("Filtrado Detallado de Residencias", () => {
     //click habitacion
     cy.get('#tab--tabs--1').click();
     cy.wait(4000);
-    //3 habitaciones
-    cy.get(':nth-child(1) > .p13xb689 > [data-testid="menuItemButton-3"] > .c1c8ai4a > .t15sb9tj').click();
+    //2 habitaciones
+    cy.get(':nth-child(1) > .p13xb689 > [data-testid="menuItemButton-2"] > .c1c8ai4a > .t15sb9tj').click();
     cy.wait(4000)
     //2 camas
     cy.get(':nth-child(2) > .p13xb689 > [data-testid="menuItemButton-2"] > .c1c8ai4a > .t15sb9tj').click();
     cy.wait(4000)
-    //1 banios
-    cy.get(':nth-child(3) > .p13xb689 > [data-testid="menuItemButton-1"] > .c1c8ai4a > .t15sb9tj').click();
+    //2 banios
+    cy.get(':nth-child(3) > .p13xb689 > [data-testid="menuItemButton-2"] > .c1c8ai4a > .t15sb9tj').click();
     cy.wait(4000)
     cy.get('#price_filter_max').clear().type('2000');
     cy.wait(4000);
-    cy.get('#price_filter_min').clear().type('1000');
+    cy.get('#price_filter_min').clear().type('1500');
     cy.wait(4000);
     cy.get('.t1nlugab').click();
     cy.wait(4000);
@@ -190,7 +184,7 @@ describe("Filtrado Detallado de Residencias", () => {
         cy.wait(4000);
 
         // Desplazarse hasta el final de la página de forma lenta
-        cy.scrollTo('bottom', { duration: 4000 }); // Duración de 4 segundos
+        cy.scrollTo('bottom', { duration: 12000 }); // Duración de 12 segundos
         cy.wait(4000); // Esperar un momento después del desplazamiento
 
         // Verificar el número de cards
@@ -207,7 +201,6 @@ describe("Filtrado Detallado de Residencias", () => {
             "User-Agent": "axios/0.18.0"
         }
     });
-    
     cy.wait(4000);
     cy.get('.b1prp6wh').click();
     cy.wait(4000);
@@ -229,7 +222,6 @@ describe("Filtrado Detallado de Residencias", () => {
     cy.wait(4000);
     cy.get('.t1nlugab').click();
     cy.wait(4000);
-    
     // Obtener el texto del botón antes de hacer clic
     cy.get('.bmx2gr4').invoke('text').then((text) => {
         let numToShow = 0;
@@ -240,7 +232,6 @@ describe("Filtrado Detallado de Residencias", () => {
             numToShow = parseInt(text.match(/\d+/)[0]); // Extraer el número del texto
             cy.log(`Número extraído: ${numToShow}`);
         }
-
         // Hacer clic en el botón después de obtener el texto
         cy.get('.bmx2gr4').click();
         cy.wait(4000);
@@ -263,7 +254,6 @@ describe("Filtrado Detallado de Residencias", () => {
             "User-Agent": "axios/0.18.0"
         }
     });
-    
     cy.wait(4000);
     cy.get('.b1prp6wh').click();
     cy.wait(4000);
@@ -285,7 +275,6 @@ describe("Filtrado Detallado de Residencias", () => {
     cy.wait(4000);
     cy.get('.t1nlugab').click();
     cy.wait(4000);
-    
     // Obtener el texto del botón antes de hacer clic
     cy.get('.bmx2gr4').invoke('text').then((text) => {
         let numToShow = 0;
@@ -296,15 +285,12 @@ describe("Filtrado Detallado de Residencias", () => {
             numToShow = parseInt(text.match(/\d+/)[0]); // Extraer el número del texto
             cy.log(`Número extraído: ${numToShow}`);
         }
-
         // Hacer clic en el botón después de obtener el texto
         cy.get('.bmx2gr4').click();
         cy.wait(4000);
-
         // Desplazarse hasta el final de la página de forma lenta
         cy.scrollTo('bottom', { duration: 4000 }); // Duración de 4 segundos
         cy.wait(4000); // Esperar un momento después del desplazamiento
-        
         // Verificar el número de cards
         cy.get('.bn2bl2p').should('have.length', numToShow); // Clase que identifica las cards
     });
@@ -319,7 +305,6 @@ describe("Filtrado Detallado de Residencias", () => {
             "User-Agent": "axios/0.18.0"
         }
     });
-    
     cy.wait(4000);
     cy.get('.b1prp6wh').click();
     cy.wait(4000);
@@ -341,7 +326,6 @@ describe("Filtrado Detallado de Residencias", () => {
     cy.wait(4000);
     cy.get('.t1nlugab').click();
     cy.wait(4000);
-    
     // Obtener el texto del botón antes de hacer clic
     cy.get('.bmx2gr4').invoke('text').then((text) => {
         let numToShow = 0;
@@ -352,11 +336,9 @@ describe("Filtrado Detallado de Residencias", () => {
             numToShow = parseInt(text.match(/\d+/)[0]); // Extraer el número del texto
             cy.log(`Número extraído: ${numToShow}`);
         }
-
         // Hacer clic en el botón después de obtener el texto
         cy.get('.bmx2gr4').click();
         cy.wait(4000);
-
         // Verificar el número de cards
         cy.get('.bn2bl2p').should('have.length', numToShow); // Clase que identifica las cards
     });
@@ -371,7 +353,6 @@ describe("Filtrado Detallado de Residencias", () => {
             "User-Agent": "axios/0.18.0"
         }
     });
-    
     cy.wait(4000);
     cy.get('.b1prp6wh').click();
     cy.wait(4000);
@@ -393,7 +374,6 @@ describe("Filtrado Detallado de Residencias", () => {
     cy.wait(4000);
     cy.get('.t1nlugab').click();
     cy.wait(4000);
-    
     // Obtener el texto del botón antes de hacer clic
     cy.get('.bmx2gr4').invoke('text').then((text) => {
         let numToShow = 0;
@@ -404,11 +384,9 @@ describe("Filtrado Detallado de Residencias", () => {
             numToShow = parseInt(text.match(/\d+/)[0]); // Extraer el número del texto
             cy.log(`Número extraído: ${numToShow}`);
         }
-
         // Hacer clic en el botón después de obtener el texto
         cy.get('.bmx2gr4').click();
         cy.wait(4000);
-
         // Verificar el número de cards
         cy.get('.bn2bl2p').should('have.length', numToShow); // Clase que identifica las cards
     });
@@ -423,7 +401,6 @@ describe("Filtrado Detallado de Residencias", () => {
             "User-Agent": "axios/0.18.0"
         }
     });
-    
     cy.wait(4000);
     cy.get('.b1prp6wh').click();
     cy.wait(4000);
@@ -445,7 +422,6 @@ describe("Filtrado Detallado de Residencias", () => {
     cy.wait(4000);
     cy.get('.t1nlugab').click();
     cy.wait(4000);
-    
     // Obtener el texto del botón antes de hacer clic
     cy.get('.bmx2gr4').invoke('text').then((text) => {
         let numToShow = 0;
@@ -456,11 +432,9 @@ describe("Filtrado Detallado de Residencias", () => {
             numToShow = parseInt(text.match(/\d+/)[0]); // Extraer el número del texto
             cy.log(`Número extraído: ${numToShow}`);
         }
-
         // Hacer clic en el botón después de obtener el texto
         cy.get('.bmx2gr4').click();
         cy.wait(4000);
-
         // Verificar el número de cards
         cy.get('.bn2bl2p').should('have.length', numToShow); // Clase que identifica las cards
     });
@@ -469,14 +443,13 @@ describe("Filtrado Detallado de Residencias", () => {
 
 ///////-------------------------------10--------------------------------///////////////////////
 
-    it("Verificar número de cards según el texto del botón", () => {
+    it("Verificar disponibilidad de habitaciones a un rango de precios extremadamente alto", () => {
         cy.visit('https://www.airbnb.com.bo/', {
             headers: {
                 "Accept": "application/json, text/plain, */*",
                 "User-Agent": "axios/0.18.0"
             }
         });
-
         cy.wait(4000);
         cy.get('.b1prp6wh').click();
         cy.wait(4000);
@@ -494,7 +467,6 @@ describe("Filtrado Detallado de Residencias", () => {
         cy.wait(4000);
         cy.get('.t1nlugab').click(); // Aplicar filtros
         cy.wait(4000);
-
         // Obtener el texto del botón antes de hacer clic
         cy.get('.bmx2gr4').invoke('text').then((text) => {
             let numToShow = 0;
@@ -505,11 +477,9 @@ describe("Filtrado Detallado de Residencias", () => {
                 numToShow = parseInt(text.match(/\d+/)[0]); // Extraer el número del texto
                 cy.log(`Número extraído: ${numToShow}`);
             }
-
             // Hacer clic en el botón después de obtener el texto
             cy.get('.bmx2gr4').click();
             cy.wait(4000);
-
             // Verificar el número de cards
             cy.get('.bn2bl2p').should('have.length', numToShow); // Clase que identifica las cards
         });
