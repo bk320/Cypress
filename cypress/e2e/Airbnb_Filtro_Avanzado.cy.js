@@ -101,54 +101,42 @@ describe('suite Filtro de búsqueda Avanzado', () => {
     });
     
     it('3. Verificar que el sistema de filtro aplique correctamente el filtro de fechas para mostrar solo las residencias disponibles dentro del rango seleccionado.', () =>{
-        let currentPosition;
-    
+        let currentPosition;    
         cy.visit('https://www.airbnb.com.bo/', {
             headers: {
                 "Accept": "application/json, text/plain, /",   
                 "User-Agent": "axios/0.18.0"
             }
         });
-    
-
         cy.wait(8000);
         cy.xpath("//div[normalize-space()='Llegada']").click({ force: true });
         cy.window().then(win => {
             currentPosition = win.scrollY;
             win.scrollTo(0, currentPosition);
         });
-        cy.wait(2000);
-    
-
+        cy.wait(2000);  
         const hoy = new Date();
-
         const fechaCheckIn = new Date(hoy);
         fechaCheckIn.setDate(hoy.getDate() + 10);
-
         const diaHoy = hoy.getDate().toString().padStart(2, '0');
         const mesHoy = (hoy.getMonth() + 1).toString().padStart(2, '0');
         const añoHoy = hoy.getFullYear();
-        const fechaFormateadaHoy = `${diaHoy}/${mesHoy}/${añoHoy}`;
-    
+        const fechaFormateadaHoy = `${diaHoy}/${mesHoy}/${añoHoy}`;    
         const diaCheckIn = fechaCheckIn.getDate().toString().padStart(2, '0');
         const mesCheckIn = (fechaCheckIn.getMonth() + 1).toString().padStart(2, '0');
         const añoCheckIn = fechaCheckIn.getFullYear();
         const fechaFormateadaCheckIn = `${diaCheckIn}/${mesCheckIn}/${añoCheckIn}`;
-    
-
         cy.get(`[data-testid="calendar-day-${diaHoy}/${mesHoy}/${añoHoy}"]`).click({ force: true });
         cy.wait(2000);
         cy.get(`[data-testid="calendar-day-${diaCheckIn}/${mesCheckIn}/${añoCheckIn}"]`).click({ force: true });
         cy.wait(2000);
         cy.get("[data-testid$='structured-search-input-search-button']").click({ force: true });
         cy.wait(2000);
-    
-
         cy.get(':nth-child(1) > .c4mnd7m > .c1l1h97y > [itemprop="itemListElement"] > :nth-child(4) > :nth-child(1) > [data-testid="card-container"] > .bn2bl2p')
             .invoke('attr', 'target', '_self') 
             .click({ force: true });
         cy.wait(2000);
-
+        cy.get('.c1lbtiq8 > .l1ovpqvx').click()
         cy.get('[data-testid="change-dates-checkIn"]').invoke('text').then(textoCheckIn => {
             const fechaCheckInMostrada = normalizeFecha(textoCheckIn.trim());
             expect(fechaCheckInMostrada).to.equal(fechaFormateadaHoy);
@@ -158,8 +146,6 @@ describe('suite Filtro de búsqueda Avanzado', () => {
             const fechaCheckOutMostrada = normalizeFecha(textoCheckOut.trim());
             expect(fechaCheckOutMostrada).to.equal(fechaFormateadaCheckIn);
         });
-        
-
         function normalizeFecha(fecha) {
             const partesFecha = fecha.split('/');
             const dia = partesFecha[0].padStart(2, '0');
@@ -232,8 +218,6 @@ describe('suite Filtro de búsqueda Avanzado', () => {
                 "User-Agent": "axios/0.18.0"
             }
         });
-
-
         cy.wait(8000);
         cy.window().then(win => {
             currentPosition = win.scrollY;
@@ -269,7 +253,6 @@ describe('suite Filtro de búsqueda Avanzado', () => {
         });
 
         cy.wait(8000);
-
         cy.window().then(win => {
             currentPosition = win.scrollY;
         });
@@ -290,16 +273,13 @@ describe('suite Filtro de búsqueda Avanzado', () => {
             .invoke('attr', 'target', '_self') 
             .click({ force: true });
         cy.wait(2000);
-        
-
+        cy.get('.c1lbtiq8 > .l1ovpqvx').click()
         cy.xpath('(//li[contains(@class,"l7n4lsf")])[1]')
             .invoke('text')
             .then(texto => {
                 const numeroDeHuespedes = parseInt(texto.trim().split(' ')[0], 10);
                 expect(numeroDeHuespedes).to.be.at.least(numeroDeClics);
             });
-
-
     });
 
     it('7. Verificar que el sistema muestre residencias para la cantidad maxima de huéspedes. ', () =>{
@@ -335,7 +315,7 @@ describe('suite Filtro de búsqueda Avanzado', () => {
             .invoke('attr', 'target', '_self') 
             .click({ force: true });
         cy.wait(2000);
-        
+        cy.get('.c1lbtiq8 > .l1ovpqvx').click()
         cy.xpath(`//span[normalize-space()='${numeroDeClics} huéspedes']`)
             .invoke('text')
             .then(texto => {
@@ -393,7 +373,6 @@ describe('suite Filtro de búsqueda Avanzado', () => {
                 "User-Agent": "axios/0.18.0"
             }
         });
-
         cy.wait(8000);
         cy.window().then(win => {
             currentPosition = win.scrollY;
@@ -424,6 +403,8 @@ describe('suite Filtro de búsqueda Avanzado', () => {
             .invoke('attr', 'target', '_self') 
             .click({ force: true });
         cy.wait(2000);
+        cy.get('.c1lbtiq8 > .l1ovpqvx').click()
+        cy.scrollTo(0, 1000);
         cy.get('[class^="_19xnuo97"]')
         .each(($element, index, $list) => {
             cy.wrap($element)
