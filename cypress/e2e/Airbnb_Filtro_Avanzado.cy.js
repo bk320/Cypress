@@ -168,7 +168,7 @@ describe('suite Filtro de búsqueda Avanzado', () => {
             return `${dia}/${mes}/${año}`;
         }
     });
-    it('4. Verificar que el sistema de filtro no permite seleccionar fechas anteriores a la fecha inicial.', () =>{
+    it('4. Verificar que el sistema de filtro no permite seleccionar fechas anteriores a la fecha actual.', () =>{
         let currentPosition;
     
         cy.visit('https://www.airbnb.com.bo/', {
@@ -302,7 +302,7 @@ describe('suite Filtro de búsqueda Avanzado', () => {
 
     });
 
-    it('7. Verificar que el sistema muestre residencias que permitan una cantidad mayor o igual al número de huéspedes máximos. ', () =>{
+    it('7. Verificar que el sistema muestre residencias para la cantidad maxima de huéspedes. ', () =>{
         let currentPosition;
         const numeroDeClics = 15;
 
@@ -346,7 +346,7 @@ describe('suite Filtro de búsqueda Avanzado', () => {
 
     });
 
-    it('8. Verificar que el sistema de filtro no permite solo registrar niños en el filtro sin el acompañamiento de al menos un adulto. ', () =>{
+    it('8. Verificar que el sistema de filtro no permite registrar niños en el filtro, sin el acompañamiento de al menos un adulto. ', () =>{
         let currentPosition;
         const numeroDeClics = 15;
 
